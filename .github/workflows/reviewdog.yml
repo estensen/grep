@@ -30,6 +30,18 @@ jobs:
         run: |
           golint ./... | reviewdog -f=golint -name=golint-github-check -reporter=github-pr-check -fail-on-error
 
+  golangci-lint:
+    name: runner / golangci-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-golangci-lint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          golangci_lint_flags: "--enable-all --exclude-use-default=false -D wsl -D testpackage"
+          level: "warning"
+          reporter: github-pr-checkg
+
   staticcheck:
     name: runner / staticcheck
     runs-on: ubuntu-latest
