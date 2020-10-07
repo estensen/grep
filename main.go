@@ -20,7 +20,7 @@ func main() {
 	if err != nil {
 		log.Fatal("cannot read file", err)
 	}
-	defer file.Close()
+	//defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
@@ -33,3 +33,4 @@ func main() {
 		log.Fatal(err)
 	}
 }
+
