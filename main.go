@@ -34,6 +34,3 @@ func main() {
 	}
 }
 
-func Empty() error {
-	return nil
-}
